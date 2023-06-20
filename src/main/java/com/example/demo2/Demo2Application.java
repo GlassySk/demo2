@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 
-@MapperScan("com.example.demo2.mapper") //扫描的mapper
+@MapperScan("com.example.demo2.dao") //扫描的mapper
 @SpringBootApplication
 public class Demo2Application {
 

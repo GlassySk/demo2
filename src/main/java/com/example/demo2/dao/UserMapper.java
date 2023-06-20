@@ -1,6 +1,7 @@
-package com.example.demo2.mapper;
+package com.example.demo2.dao;
 
 import com.example.demo2.entity.User;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -38,5 +39,8 @@ public interface UserMapper {
      * 查询所有用户信息
      * @return
      */
+
     List<User> selectAll ();
+    @Select("SELECT * FROM user WHERE id>2")
+    User k();
 }

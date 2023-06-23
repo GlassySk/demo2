@@ -1,11 +1,14 @@
-package com.example.demo2.service;
+package com.example.demo2.service.impl;
 import com.example.demo2.entity.User;
 import com.example.demo2.mapper.UserMapper;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-
+//list 无序集合  name USEr  Teacher
 @Service
 public class UserService {
     @Autowired
@@ -29,7 +32,10 @@ public class UserService {
         return user;
     }
 
-    public List<User> selectAll() {
-        return userMapper.selectAll();
+    public Page<User> selectAll(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<User> users1 = userMapper.selectAll();
+        Page<User> users  = (Page<User>) users1;
+        return  users;
     }
 }

@@ -5,6 +5,13 @@ public class User {
     private String passWord;
     private String realName;
 
+    public User(Integer id, String userName, String passWord, String realName) {
+        this.id = id;
+        this.userName = userName;
+        this.passWord = passWord;
+        this.realName = realName;
+    }
+
     public Integer getId() {
         return id;
     }

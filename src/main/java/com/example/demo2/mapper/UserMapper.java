@@ -1,6 +1,7 @@
 package com.example.demo2.mapper;
 
 import com.example.demo2.entity.User;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -39,4 +40,6 @@ public interface UserMapper {
      * @return
      */
     List<User> selectAll ();
+    @Select("select * from user")
+    List<User> pageUser();
 }

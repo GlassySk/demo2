@@ -1,37 +1,49 @@
 package com.example.demo2.entity;
-
-import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModel;
-import lombok.*;
-import lombok.experimental.Accessors;
-
-import javax.persistence.Table;
-import java.io.Serializable;
-import java.util.Arrays;
-import java.util.List;
-
-@ToString
-@Builder
-@Data
-@Table(name="user")
-@ApiModel(description= "shiyan")
-@NoArgsConstructor
-@AllArgsConstructor
-@Accessors(chain = true)
-@TableName(value = "user")//指定表名
-public class User implements Serializable {
-    private static final long serialVersionUID = -5644799954031156649L;
-
-    private String id;
+public class User {
+    private Integer id;
     private String userName;
     private String passWord;
     private String realName;
-    private List<String> all1;
-    public List<String> getAll1() {
-        return all1;
+
+    public Integer getId() {
+        return id;
     }
-    public void setAll1() {
-        String[] userData = {userName, passWord, realName};
-        all1 = Arrays.asList(userData);
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", realName='" + realName + '\'' +
+                '}';
     }
 }

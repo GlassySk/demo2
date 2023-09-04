@@ -1,13 +1,11 @@
-package com.example.demo2.dao;
+package com.example.demo2.mapper;
 
 import com.example.demo2.entity.User;
-import com.github.pagehelper.Page;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Mapper
+
+@Repository
 public interface UserMapper {
     /**
      * 根据id查询用户信息
@@ -40,19 +38,5 @@ public interface UserMapper {
      * 查询所有用户信息
      * @return
      */
-
     List<User> selectAll ();
-    @Select("SELECT * FROM user WHERE id>2")
-    User k();
-
-    @Select("<script>" +
-            "SELECT * FROM user" +
-            "<where>" +
-            "<if test = 'realName != null'>" +
-            " realName = #{id} " +
-            "</if>" +
-            "</where>" +
-            " order by passWord desc " +
-            "</script>")
-    Page<User> userpage(String id);
 }
